@@ -11,7 +11,8 @@
   <header>
     <h1>Skill Swap</h1>
     <nav>
-      <!-- Navigation will be added in a later branch -->
+      <a href="#skills">Available Skills</a>
+      <a href="#add-skill">Add a Skill</a>
     </nav>
   </header>
 
@@ -21,9 +22,61 @@
       <p>Connect with students and exchange skills.</p>
     </section>
 
-    <section>
+    <section id="skills">
       <h2>Available Skills</h2>
-      <p>Skill offerings will appear here.</p>
+
+      <label for="category-filter">Filter by Category:</label>
+      <select id="category-filter">
+        <option value="all">All Categories</option>
+      </select>
+
+      <p id="skills-status" role="status">Loading skills...</p>
+      <div id="skills-list"></div>
+      <p id="total-cost">Total Cost: $0.00</p>
+      
+<section id="skill-matching">
+  <h2>Find Skills That Match Your Interests</h2>
+
+  <label for="user-interests">
+    Enter your interests (separated by commas):
+  </label>
+
+  <input
+    type="text"
+    id="user-interests"
+    placeholder="Music, Technology, Sports"
+  >
+
+  <button type="button" id="match-skills-btn">
+    Find Matching Skills
+  </button>
+
+  <p id="match-status" role="status"></p>
+  <div id="matching-results"></div>
+</section>
+
+    </section>
+
+    <section id="add-skill">
+      <h2>Add a New Skill</h2>
+
+      <form id="add-skill-form">
+        <label for="skill-title">Skill Title</label>
+        <input type="text" id="skill-title" required>
+
+        <label for="skill-category">Category</label>
+        <input type="text" id="skill-category" required>
+
+        <label for="skill-price">Price ($)</label>
+        <input type="number" id="skill-price" min="0" step="0.01" required>
+
+        <label for="skill-description">Description</label>
+        <textarea id="skill-description" required></textarea>
+
+        <button type="submit">Add Skill</button>
+      </form>
+
+      <p id="form-message" role="status"></p>
     </section>
   </main>
 
@@ -31,6 +84,8 @@
     <p>&copy; 2026 Skill Swap</p>
   </footer>
 
+  <script src="skillswap-functions.js"></script>
+  <script src="api-service.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
